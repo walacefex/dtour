@@ -1,0 +1,28 @@
+{% extends 'shared/head.html' %} {% block body %}
+<section id="telalogin">
+
+    <header class="container ">
+        <h1 class="title-mastertrip">MasterTrip</h1>
+
+    </header>
+
+    <div class="login">
+        <p>{{msg}}</p>
+        <form action="/login" method="post">
+            {% csrf_token %}
+
+
+            <label for="email">Email
+            <input type="email" name="email" id="E-mail" />
+        </label>
+
+            <label for="Senha">Senha
+            <input type="password" name="Senha" id="Senha" />
+        </label>
+            <div class="row">
+                <a href="/dashboard" style="width: 100%;"><button type="button" class="button">Login </button></a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

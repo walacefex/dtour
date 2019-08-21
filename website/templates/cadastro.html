@@ -1,0 +1,40 @@
+{% extends 'shared/head.html' %} {% block body %}
+<section id="telalogin">
+
+    <header class="container ">
+        <h1 class="title-mastertrip">D Tour</h1>
+
+    </header>
+
+    <div class="login">
+        <p>{{msg}}</p>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <label for="nome">Nome
+            <input type="text" name="nome" id="Digite o seu nome" />
+        </label>
+            <label for="pais">País
+            <input type="text" name="pais" id="Ex: Brasil" />
+        </label>
+            <label for="estado">Estado
+            <input type="text" name="estado" id="Ex: São Paulo" />
+        </label>
+            <label for="cidade">Cidade
+            <input type="text" name="cidade" id="Ex: Suzano" />
+        </label>
+
+            <label for="email">Email
+            <input type="email" name="email" id="E-mail" />
+        </label>
+
+            <label for="Senha">Senha
+            <input type="password" name="Senha" id="Senha" />
+        </label>
+            <div class="row">
+                <a href="/dashboard" style="width: 100%;"><button type="button" class="mr-2">Cadastar</button></a>
+               
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

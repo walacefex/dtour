@@ -1,0 +1,16 @@
+__pycache__/
+env/
+venv/
+ENV/
+env
+.env
+.venv
+.vscode
+.Python
+*.log
+local_settings.py
+db.sqlite3
+/site
+.mypy_cache/
+.idea
+Pipfil

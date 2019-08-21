@@ -1,0 +1,55 @@
+{% extends 'shared/layout.html' %}
+{% block conteudo %}
+
+<div class="form-card">
+<h1>Ideias Malucas</h1>
+{% if pessoa is None %}
+    
+    <h2>Ops, você precisa se cadastrar!</h2>
+
+<form method="get" action="/" >
+    <button type="submit">Clique aqui para se cadastrar</button>
+</form>
+
+{% else %}
+<div class="form-campo">
+    <h2>Cadastre a sua ideia {{pessoa.nome}}</h2>
+<form action="/ideias" method="post">
+    {% csrf_token %}
+    <div class="form-campo">
+        <input type="hidden" name="email" value="{{pessoa.email}}">
+    </div>
+    
+    <div class="form-campo">
+    <label for="descricao">Título da ideia:</label>
+    <input type="text" name="titulo" placeholder="Nome da ideia">
+    </div>
+
+    <div class="form-campo">
+        <label for="descricao">Descreva sua ideia:</label>
+        <textarea name="descricao" cols="30" rows="3" placeholder="Descreva sua ideia"></textarea>
+    </div>
+
+    <div class="form-campo">
+        <select name="categorias">
+            <option value="Terra Plana">Terra Plana</option>
+            <option value="Ideias para Coach Groger">Contra o coach Groger</option>
+            <option value="Ideias contra João">Contra João</option>
+            <option value="Públicas">Públicas</option>
+            <option value="Outros">Outros</option>
+        </select>
+    </div>
+
+    <div class="form-campo">
+        <input type="text" name="categoria_outros" placeholder="Caso outros, qual?">
+    </div>
+
+    <div class="form-campo">
+        <input type="submit" value="Cadastrar Ideia">
+    </div>
+
+</form>
+</div>
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'shared/head.html' %} {% block body %}
+<header class="container-fluido slide">
+    <div class="row">
+        <div class="redes-sociais">
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+    </div>
+    <div class="container-menu">
+        <div class="logo">
+            <a href="/"><img src="/static/img/logo.png" alt="logo"></a>
+        </div>
+        <nav class="navbar">
+            <div class="icon-bar" onclick="Show()">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+            <ul id="nav-lists">
+                <li class="close"><span onclick="Hide()">×</span></li>
+                <li><a class="item-nav" href="/servicos">Informações</a></li>
+                <li><a class="item-nav" href="/sobre">Sobre Nós</a></li>
+                <li><a class="item-nav" href="/contato">Contato</a></li>
+                {% if auth == 1 %}
+                <li><a class="item-nav" href="/dashboard">dashboard</a></li>
+                {% else %}
+                <li class="btn-cadastrar"><a href="/cadastro">Cadastar</a></li>
+                <li class="btn-entrar"><a href="/login">Entrar</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    <div class="container flex-colunas">
+        <h2 class="title-slide">
+            {% if auth != 1 %} Faça o planejamento de seu intercâmbio. <br>
+            {% endif %} 
+        </h2>
+        <div class="row ml-1">
+            <a class=" btn btn-cadastrar" href=" #">Confira</a>
+        </div>
+    </div>
+</header>
+{% block conteudo %} {% endblock %} {% endblock %}
